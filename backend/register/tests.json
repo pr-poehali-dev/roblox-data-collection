@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "Регистрация пользователя",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "username": "TestPlayer",
+        "email": "test@example.com",
+        "password": "test123"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "message": "string",
+        "username": "TestPlayer"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Ошибка при неполных данных",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "username": "TestPlayer"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
